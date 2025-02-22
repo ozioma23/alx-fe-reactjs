@@ -1,7 +1,7 @@
 import {Link} from "react-router-dom"
  const navbar = () => {
     return (
-        <nav>
+        <nav style = {{ backgroundColor: "grey", display: "flex", justifyContent:"center", color: "white"}}>
             <ul>
                 <li><Link to="/">Home</Link></li>
                 <li><Link to="/about">About</Link></li>
