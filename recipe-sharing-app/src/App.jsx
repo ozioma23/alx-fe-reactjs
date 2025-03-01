@@ -5,6 +5,7 @@ import viteLogo from '/vite.svg'
 import AddRecipeForm from './components/AddRecipeForm'
 import RecipeList from './components/RecipeList';
 import RecipeDetails from './components/RecipeDetails';
+import SearchBar from "./components/SearchBar";
 import './App.css'
 function App() {
   const [count, setCount] = useState(0)
@@ -31,6 +32,7 @@ function App() {
         Click on the Vite and React logos to learn more
       </p>
       <RecipeList/>
+      <SearchBar/> 
       <AddRecipeForm/>
       <RecipeDetails/>
       <Router>
