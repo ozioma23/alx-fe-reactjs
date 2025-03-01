@@ -125,6 +125,20 @@ const useRecipeStore = create((set) => ({
         ),
       };
     }),
+  generateRecommendations: () => {
+    const { recipes, favorites } = get();
+
+    // Example: Recommend recipes with similar ingredients or categories
+    const recommended = recipes.filter((recipe) =>
+      favorites.some((favId) =>
+        recipe.ingredients.some((ing) =>
+          recipes.find((fav) => fav.id === favId)?.ingredients.includes(ing)
+        )
+      )
+    );
+
+    set({ recommendations: recommended });
+  },
 }));
 
 export default useRecipeStore;
