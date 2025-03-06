@@ -11,7 +11,7 @@ const fetchPosts = async () => {
 
 const PostsComponent = () => {
     // Use the useQuery hook with additional configuration options
-    const { data, error, isLoading, isError } = useQuery('fetchPosts', fetchPosts, {
+    const { data, refetch, isLoading, isError } = useQuery('fetchPosts', fetchPosts, {
         cacheTime: 1000 * 60 * 5, // Cache data for 5 minutes
         staleTime: 1000 * 60 * 1, // Consider data fresh for 1 minute
         refetchOnWindowFocus: false, // Prevent refetching when window is focused
@@ -28,6 +28,7 @@ const PostsComponent = () => {
     return (
         <div>
             <h2>Posts</h2>
+            <button onClick={() => refetch()}>Refresh Posts</button>
             <ul>
                 {data.map(post => (
                     <li key={post.id}>{post.title}</li>
