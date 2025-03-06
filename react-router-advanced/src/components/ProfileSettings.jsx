@@ -6,5 +6,4 @@ function ProfileSettings() {
         </div>
     );
 }
-
 export default ProfileSettings;
