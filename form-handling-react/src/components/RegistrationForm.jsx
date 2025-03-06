@@ -9,30 +9,29 @@ const RegistrationForm = () => {
 
   const [errors, setErrors] = useState({});
 
+  const { username, email, password } = formData; 
+
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
   const validateForm = () => {
     let newErrors = {};
-    if (!formData.username) newErrors.username = "Username is required";
-    if (!formData.email) newErrors.email = "Email is required";
-    if (!formData.password) newErrors.password = "Password is required";
+    if (!username) newErrors.username = "Username is required";
+    if (!email) newErrors.email = "Email is required";
+    if (!password) newErrors.password = "Password is required";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     if (validateForm()) {
       console.log("Form Submitted", formData);
-      // Simulate API call
       alert("User registered successfully!");
       setFormData({ username: "", email: "", password: "" }); // Reset form
     }
   };
-
   return (
     <div className="form-container">
       <h2>User Registration</h2>
@@ -42,7 +41,7 @@ const RegistrationForm = () => {
           <input
             type="text"
             name="username"
-            value={formData.username}
+            value={username} // Now using destructured value
             onChange={handleChange}
           />
           {errors.username && <p className="error">{errors.username}</p>}
@@ -53,7 +52,7 @@ const RegistrationForm = () => {
           <input
             type="email"
             name="email"
-            value={formData.email}
+            value={email} // Now using destructured value
             onChange={handleChange}
           />
           {errors.email && <p className="error">{errors.email}</p>}
@@ -64,7 +63,7 @@ const RegistrationForm = () => {
           <input
             type="password"
             name="password"
-            value={formData.password}
+            value={password} // Now using destructured value
             onChange={handleChange}
           />
           {errors.password && <p className="error">{errors.password}</p>}
@@ -75,5 +74,4 @@ const RegistrationForm = () => {
     </div>
   );
 };
-
 export default RegistrationForm;
