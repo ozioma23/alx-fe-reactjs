@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
+import BlogPost from "./components/BlogPost";
 import Profile from './components/Profile';
 import { AuthProvider } from "./components/AuthContext";
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -41,6 +42,8 @@ function App() {
                             <Profile />
                         </ProtectedRoute>
                     } />
+                    {/* Blog Post Dynamic Route */}
+          <Route path="/blog/:id" element={<BlogPost />} />
                 </Routes>
             </Router>
         </AuthProvider>
