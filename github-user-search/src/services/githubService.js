@@ -2,7 +2,7 @@ import axios from "axios";
 
 const API_KEY = import.meta.env.VITE_GITHUB_API_KEY; // Access environment variable
 
-const searchGithubUser = async (username) => {
+const fetchUserData = async (username) => {
     try {
         const response = await axios.get(`https://api.github.com/users/${username}`, {
             headers: {
@@ -16,4 +16,5 @@ const searchGithubUser = async (username) => {
     }
 };
 
-export default searchGithubUser;
+export default fetchUserData;
+
