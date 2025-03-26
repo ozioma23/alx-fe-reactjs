@@ -20,7 +20,7 @@ const Search = ({ onSearch }) => {
         setUsers([]);
         setPage(1); // Reset pagination
 
-        const userData = await onSearch(username, location, minRepos, 1); 
+        const userData = await fetchUserData(username, location, minRepos, 1); 
         if (userData && userData.length > 0) {
             setUsers(userData);
             setHasMore(userData.length === 30); // If 30 results, there may be more pages
